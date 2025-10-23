@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func CountCharacter(string, s c rune) int {
+func CountCharacter(s string, c rune) int {
 	if s == "" {
 		return 0
 	}
