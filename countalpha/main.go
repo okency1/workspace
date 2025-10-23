@@ -12,7 +12,7 @@ func CountAlpha(s string) int {
 	return count
 }
 func main() {
-	result := CountAlpha("christopheA 123!")
+	result := CountAlpha("hELO words1234 123!")
 	z01.PrintRune('0' + rune(result/10))
 	z01.PrintRune('0' + rune(result%10))
 	z01.PrintRune('\n')

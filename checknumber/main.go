@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func CheckNumber(s string) bool {
 	for _, i := range s {
@@ -13,7 +11,6 @@ func CheckNumber(s string) bool {
 	return false
 }
 func main() {
-	fmt.Println(CheckNumber("2dfghj"))
-	fmt.Println(CheckNumber("ghj"))
-	fmt.Println(CheckNumber("2344"))
+	fmt.Println(CheckNumber("Hello"))
+	fmt.Println(CheckNumber("Hello1"))
 }
