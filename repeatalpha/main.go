@@ -1,33 +1,20 @@
-package main
-
-import "fmt"
+package piscine
 
 func RepeatAlpha(s string) string {
-	if s == "" {
-		return ""
-	}
-	var result []rune
-	for _, i := range s {
-		if (i >= 'a' && i <= 'z') || (i >= 'A' && i <= 'Z') {
-			var position int
-			if i >= 'a' && i <= 'z' {
-				position = int(i - 'a' + 1)
-			} else {
-				position = int(i - 'A' + 1)
+	result := ""
+
+	for _, ch := range s {
+		if ch >= 'a' && ch <= 'z' {
+			for i := 0; i < int(ch-'a'+1); i++ {
+				result += string(ch)
 			}
-			for r := 0; r < position; r++ {
-				result = append(result, i)
+		} else if ch >= 'A' && ch <= 'Z' {
+			for i := 0; i < int(ch-'A'+1); i++ {
+				result += string(ch)
 			}
 		} else {
-			result = append(result, i)
+			result += string(ch)
 		}
 	}
-	return string(result)
-}
-
-func main() {
-	fmt.Println(RepeatAlpha("abc"))
-	fmt.Println(RepeatAlpha("Choumi."))
-	fmt.Println(RepeatAlpha(""))
-	fmt.Println(RepeatAlpha("abacadaba 01!"))
+	return result
 }
