@@ -14,6 +14,8 @@ func PrintFish(s string, n int) {
 	}
 	if n%3 == 0 {
 		print("chips")
+	} else {
+		print(s)
 	}
 }
 
