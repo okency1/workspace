@@ -3,10 +3,13 @@ package main
 import "fmt"
 
 func Gcd(a, b uint) uint {
-	if b == 0 {
-		return a
+	if a == 0 || b == 0 {
+		return 0
 	}
-	return Gcd(b, a%b)
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
 }
 
 func main() {
