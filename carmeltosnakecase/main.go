@@ -1,39 +1,32 @@
 package main
 
-import (
-	"fmt"
-	"unicode"
-)
-
-func CamelToSnakeCase(s string) string {
+func CAMELtoSnackCase(s string) string {
 	if s == "" {
 		return ""
 	}
-	runes := []rune(s)
-	var result []rune
-	for i, r := range runes {
-		if !unicode.IsLetter(r) {
-			return s
-		}
-		if i > 0 && unicode.IsUpper(r) && unicode.IsUpper(runes[i-1]) && i > 1 {
-			return s
-		}
-		if unicode.IsUpper(runes[len(runes)-1]) {
-			return s
-		}
-		if unicode.IsUpper(r) && i > 0 {
-			result = append(result, '_')
-		}
-		result = append(result, unicode.ToLower(r))
+	if s[0] < 'a' || s[0] > 'z' {
+		return s
 	}
-	return string(result)
-}
 
-func main() {
-	fmt.Println(CamelToSnakeCase("HelloWorld"))
-	fmt.Println(CamelToSnakeCase("helloWorld"))
-	fmt.Println(CamelToSnakeCase("camelCase"))
-	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
-	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
-	fmt.Println(CamelToSnakeCase("hey2"))
+	hasUpper := false
+	for i := 1; i < len(s); i++ {
+		if s[i] >= 'A' && s[i] <= 'Z' {
+			hasUpper = true
+			break
+		}
+	}
+	if !hasUpper {
+		return s
+	}
+
+	converted := ""
+	for i := 0; i < len(s); i++ {
+		ch := s[i]
+		if ch >= 'A' && ch <= 'Z' {
+			converted += "_"
+			ch = ch + 32 // convert to lowercase
+		}
+		converted += string(ch)
+	}
+	return converted
 }
