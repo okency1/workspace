@@ -1,33 +1,17 @@
-package main
+package piscine
 
-import "github.com/01-edu/z01"
-
-func PrintFish(s string, n int) {
+func FishAndChips(n int) string {
 	if n < 0 {
-		print("error")
+		return "error: number is negative"
 	}
 	if n%2 == 0 && n%3 == 0 {
-		print("fish and chips")
+		return "fish and chips"
 	}
 	if n%2 == 0 {
-		print("fish")
+		return "fish"
 	}
 	if n%3 == 0 {
-		print("chips")
-	} else {
-		print(s)
+		return "chips"
 	}
-}
-
-func main() {
-	PrintFish("hello", 6)
-	z01.PrintRune('\n')
-	PrintFish("hello", 4)
-	z01.PrintRune('\n')
-	PrintFish("hello", 9)
-	z01.PrintRune('\n')
-	PrintFish("hello", 5)
-	z01.PrintRune('\n')
-	PrintFish("test", -1)
-	z01.PrintRune('\n')
+	return "error: non divisible"
 }
