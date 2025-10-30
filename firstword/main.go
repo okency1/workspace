@@ -1,12 +1,10 @@
 package piscine
 
 func FirstWord(s string) string {
-	word := ""
-	for i := 0; i < len(s); i++ {
+	for i := range s {
 		if s[i] == ' ' || s[i] == '\t' {
-			break
+			return s[:i] + "\n"
 		}
-		word += string(s[i])
 	}
-	return word + "\n"
+	return s + "\n"
 }
